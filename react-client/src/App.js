@@ -2,14 +2,12 @@ import "./App.css";
 import axios from "axios";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import React, { useState, useEffect } from "react";
-import Details from "./pages/Details/Details";
 
 function Home() {
   const [data, setData] = useState({ hits: [] });
 
   const fetchData = async () => {
     const result = await axios("http://localhost:5000/hits/");
-    console.log("result", result);
     setData(result.data);
   };
 
@@ -34,14 +32,13 @@ function Home() {
   };
 
   const deleteHit = async (element) => {
-    console.log("presione", element);
-
     var newpayload = { ...element, delete_state: "true" };
-    console.log("new payload", newpayload);
+
     const response = await axios.put(
       "http://localhost:5000/hits/" + element.story_id,
       newpayload
     );
+    console.log("r", response);
     setData([]);
     fetchData();
   };
@@ -183,7 +180,6 @@ function App() {
       <React.Fragment>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/hit/:autor_id" component={Details} />
           <Route path="*" component={NotFound} />
         </Switch>
       </React.Fragment>
