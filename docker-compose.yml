@@ -20,9 +20,9 @@ services:
       - "27018:27017"
   app:
     container_name: react-client
-    build: ./frontend-react
+    build: ./react-client
     volumes:
-      - ./frontend-react:/client
+      - ./react-client:/client
     ports:
       - "5001:3000"
     depends_on:
