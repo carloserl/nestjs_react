@@ -31,8 +31,16 @@ function Home() {
           <h1 className="banner-font">HN Feed</h1>
           <h2 className="banner-font">We 3 hacker news!</h2>
           <p className="banner-font2">
-            <a href="http://" className="banner-font2">
+            <a
+              href="https://www.linkedin.com/in/carlos-rodriguez-78a28638/"
+              className="banner-font2"
+            >
               Carlos Rodriguez Profile
+            </a>
+          </p>
+          <p className="banner-font2">
+            <a href="https://github.com/carloserl" className="banner-font2">
+              Github
             </a>
           </p>
         </div>
