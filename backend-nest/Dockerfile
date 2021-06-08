@@ -1,0 +1,10 @@
+# base image
+FROM node:12
+
+WORKDIR /app
+COPY package.json .
+RUN npm install 
+COPY . .
+
+# start app
+CMD ["npm","run", "start:dev"]
