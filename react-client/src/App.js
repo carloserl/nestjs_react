@@ -8,7 +8,16 @@ function Home() {
 
   const fetchData = async () => {
     const result = await axios("http://localhost:5000/hits/");
-    setData(result.data);
+
+    console.log(result.data);
+    const newarray = result.data;
+
+    newarray.sort((a, b) => {
+      return new Date(b.created_at) - new Date(a.created_at);
+    });
+
+    console.log(newarray);
+    setData(newarray);
   };
 
   useEffect(() => {
