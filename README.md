@@ -16,14 +16,15 @@ frontend React
 - The frontend shows the list in order of created in a defined format.
 - The frontend allows you to delete the hits and they appear again in the list. They are not deleted, a parameter is modified so that they are not shown.
 
-Command to run the project
-// command to create images (backend, frontend and MongODB database)
-docker-compose build
+comand to run project in multi-stage DEV
+docker-compose -f docker-compose.yml -f docker-compose-dev.yml up -d --build
 
-// command to run and start containers
-docker-compose up
+comand to run project in multi-stage PROD
+docker-compose -f docker-compose.yml -f docker-compose-prod.yml up -d --build
 
----
+URL DEV http://localhost:5001/
+
+## URL PROD http://localhost:8080/
 
 Español
 Proyecto de Full Stack Node(nestjs) y React
@@ -41,9 +42,12 @@ frontend React
 - El frontend muestra la lista en orden de creados en un formato definido.
 - El frontend permite borrar los hits y nos aparecen nuevamente en la lista. No son borrados, se le modifica un parametro para no ser mostrados.
 
-Comando para correr el proyecto
-// comando para crear imagenes(backend,frontend y base de datos MongODB)
-docker-compose build
+comando para ejecutar proyecto multi-stage DEV
+docker-compose -f docker-compose.yml -f docker-compose-dev.yml up -d --build
 
-// comando para ejecutar e iniciar contenedores
-docker-compose up
+comando para ejecutar proyecto multi-stage PROD
+docker-compose -f docker-compose.yml -f docker-compose-prod.yml up -d --build
+
+URL DEV http://localhost:5001/
+
+URL PROD http://localhost:8080/

@@ -1,0 +1,30 @@
+version: "3.7"
+
+services:
+  server:
+    container_name: nest-server
+    restart: always
+    build:
+      context: ./backend-nest
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./backend-nest:/app
+    ports:
+      - "5000:3000"
+    links:
+      - mongo
+    depends_on:
+      - mongo
+  app:
+    container_name: react-client
+    build:
+      context: ./react-client
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./react-client:/client
+    ports:
+      - "5001:3000"
+    depends_on:
+      - server
+    environment:
+      - REACT_APP_NAME=carloserl-dev

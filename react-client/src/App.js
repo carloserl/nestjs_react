@@ -43,6 +43,7 @@ function Home() {
               Github
             </a>
           </p>
+          <p className="banner-font2">{`ENV: ${process.env.REACT_APP_NAME}`}</p>
         </div>
       </div>
     );

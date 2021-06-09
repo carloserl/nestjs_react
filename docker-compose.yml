@@ -1,29 +1,8 @@
 version: "3.7"
 
 services:
-  server:
-    container_name: nest-server
-    restart: always
-    build: ./backend-nest
-    volumes:
-      - ./backend-nest:/app
-    ports:
-      - "5000:3000"
-    links:
-      - mongo
-    depends_on:
-      - mongo
   mongo:
     container_name: mydatabase_mongo
     image: mongo
     ports:
       - "27018:27017"
-  app:
-    container_name: react-client
-    build: ./react-client
-    volumes:
-      - ./react-client:/client
-    ports:
-      - "5001:3000"
-    depends_on:
-      - server
